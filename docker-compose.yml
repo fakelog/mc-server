@@ -1,15 +1,18 @@
 x-environment:
   &default-env
-  SERVER_NAME: "Era of Blocks"
+  SERVER_NAME: "Prominence II RPG: Hasturian Era"
   ALLOW_FLIGHT: "TRUE"
   ENABLE_ROLLING_LOGS: "TRUE"
   TZ: "MSK"
   INIT_MEMORY: "4G"
   MEMORY: "8G"
   EULA: "TRUE"
-  TYPE: "FABRIC"
-  VERSION: "1.21.4"
-  MODS_FILE: /third_party/mods.txt
+  TYPE: "MODRINTH"
+  MODRINTH_LOADER: "fabric"
+  MODRINTH_MODPACK: "EGs3lC8D"
+  MODRINTH_OVERRIDES_EXCLUSIONS: |
+    shaderpacks/**
+  MODS_FILE: /server-config/mods.txt
   GUI: "FALSE"
   USE_SIMD_FLAGS: "TRUE"
   PLAYER_IDLE_TIMEOUT: "600"
@@ -35,7 +38,7 @@ services:
       - "25565:25565"
 
   mc:
-    image: itzg/minecraft-server:java21-alpine
+    image: itzg/minecraft-server:java21-graalvm
     networks:
       mc-network:
         ipv4_address: 172.18.0.3
@@ -43,6 +46,7 @@ services:
       - lazymc.enabled=true
       - lazymc.group=mc
       - lazymc.server.address=mc:25565
+      - lazymc.public.version=1.20.1
     tty: true
     stdin_open: true
     restart: no
@@ -59,7 +63,10 @@ services:
     volumes:
       - data:/data
       - minecraft-world:/data/world
-      - ./third_party:/third_party:ro
+      - ./server-config:/server-config:ro
+      - ./third_party/mods/ftb-library-fabric-2001.1.4.jar:/data/mods/ftb-library-fabric-2001.1.4.jar:ro
+      - ./third_party/mods/ftb-quests-fabric-2001.2.0.jar:/data/mods/ftb-quests-fabric-2001.2.0.jar:ro
+      - ./third_party/mods/ftb-teams-fabric-2001.1.4.jar:/data/mods/ftb-teams-fabric-2001.1.4.jar:ro
 
   drasl:
     image: unmojang/drasl
