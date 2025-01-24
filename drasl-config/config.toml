@@ -4,7 +4,7 @@
 Domain = "172.18.0.4"
 
 # Example: https://drasl.example.com
-BaseURL = "172.18.0.4"
+BaseURL = "http://172.18.0.4"
 
 # List of usernames who automatically become admins of the Drasl instance
 DefaultAdmins = [""]
