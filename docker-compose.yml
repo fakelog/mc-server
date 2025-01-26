@@ -77,8 +77,6 @@ services:
     volumes:
       - drasl-data:/var/lib/drasl
       - ./drasl-config:/etc/drasl
-    ports:
-      - "25585:25585"
 
 volumes:
   data:
