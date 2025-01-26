@@ -45,6 +45,7 @@ services:
     labels:
       - lazymc.enabled=true
       - lazymc.group=mc
+      - lazymc.time.sleep_after=600
       - lazymc.server.address=mc:25565
       - lazymc.public.version=1.20.1
     tty: true
