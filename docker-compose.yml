@@ -1,6 +1,7 @@
 x-environment:
   &default-env
   SERVER_NAME: "Prominence II RPG: Hasturian Era"
+  VIEW_DISTANCE: "3"
   ALLOW_FLIGHT: "TRUE"
   ENABLE_ROLLING_LOGS: "TRUE"
   TZ: "MSK"
