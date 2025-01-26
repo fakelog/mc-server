@@ -12,6 +12,7 @@ x-environment:
   MODRINTH_LOADER: "fabric"
   MODRINTH_MODPACK: "EGs3lC8D"
   MODRINTH_OVERRIDES_EXCLUSIONS: |
+    resourcepacks/**
     shaderpacks/**
   MODS_FILE: /server-config/mods.txt
   GUI: "FALSE"
@@ -65,6 +66,7 @@ services:
     volumes:
       - data:/data
       - minecraft-world:/data/world
+      - ./minecraft-config/Icl/ICL.json:/data/config/Icl/ICL.json
       - ./server-config:/server-config:ro
       - ./third_party/mods/ftb-library-fabric-2001.1.4.jar:/data/mods/ftb-library-fabric-2001.1.4.jar:ro
       - ./third_party/mods/ftb-quests-fabric-2001.2.0.jar:/data/mods/ftb-quests-fabric-2001.2.0.jar:ro
