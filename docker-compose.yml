@@ -22,14 +22,14 @@ networks:
     driver: bridge    
     ipam:
       config:
-        - subnet: 172.18.0.0/16
+        - subnet: 172.21.0.0/16
 
 services:
   lazymc:
     image: ghcr.io/joesturge/lazymc-docker-proxy:latest
     networks:
       mc-network:
-        ipv4_address: 172.18.0.2
+        ipv4_address: 172.21.0.2
     restart: unless-stopped
     volumes:
       - data:/server:ro
@@ -41,7 +41,7 @@ services:
     image: itzg/minecraft-server:java21-graalvm
     networks:
       mc-network:
-        ipv4_address: 172.18.0.3
+        ipv4_address: 172.21.0.3
     labels:
       - lazymc.enabled=true
       - lazymc.group=mc
@@ -56,10 +56,10 @@ services:
       <<: *default-env
       JAVA_TOOL_OPTIONS: >-
         -Dminecraft.api.env=custom
-        -Dminecraft.api.auth.host=http://172.18.0.4:25585/auth
-        -Dminecraft.api.account.host=http://172.18.0.4:25585/account
-        -Dminecraft.api.session.host=http://172.18.0.4:25585/session
-        -Dminecraft.api.services.host=http://172.18.0.4:25585/services
+        -Dminecraft.api.auth.host=http://172.21.0.4:25585/auth
+        -Dminecraft.api.account.host=http://172.21.0.4:25585/account
+        -Dminecraft.api.session.host=http://172.21.0.4:25585/session
+        -Dminecraft.api.services.host=http://172.21.0.4:25585/services
     volumes:
       - data:/data
       - minecraft-world:/data/world
@@ -72,7 +72,7 @@ services:
     image: unmojang/drasl
     networks:
       mc-network:
-        ipv4_address: 172.18.0.4
+        ipv4_address: 172.21.0.4
     volumes:
       - drasl-data:/var/lib/drasl
       - ./drasl-config:/etc/drasl
