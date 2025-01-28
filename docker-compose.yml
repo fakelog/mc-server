@@ -74,9 +74,11 @@ services:
 
   drasl:
     image: unmojang/drasl
+
     networks:
       mc-network:
         ipv4_address: 172.21.0.4
+    restart: unless-stopped
     volumes:
       - drasl-data:/var/lib/drasl
       - ./drasl-config:/etc/drasl
