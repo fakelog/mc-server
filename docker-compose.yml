@@ -1,10 +1,12 @@
 x-environment:
   &default-env
   SERVER_NAME: "Prominence II RPG: Hasturian Era"
+  MOTD: "Prominence II RPG: Hasturian Era"
   VIEW_DISTANCE: "3"
+  SIMULATION_DISTANCE: "3"
   ALLOW_FLIGHT: "TRUE"
   ENABLE_ROLLING_LOGS: "TRUE"
-  TZ: "MSK"
+  TZ: "Asia/Yekaterinburg"
   INIT_MEMORY: "4G"
   MEMORY: "8G"
   EULA: "TRUE"
@@ -18,6 +20,7 @@ x-environment:
   GUI: "FALSE"
   USE_SIMD_FLAGS: "TRUE"
   PLAYER_IDLE_TIMEOUT: "600"
+  DIFFICULTY: "3"
 
 networks:
   mc-network:
