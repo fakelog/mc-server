@@ -69,7 +69,6 @@ services:
     volumes:
       - data:/data
       - minecraft-world:/data/world
-      - ./minecraft-config/Icl/lang/ru_ru.json:/data/config/Icl/lang/ru_ru.json
       - ./minecraft-config/Icl/ICL.json:/data/config/Icl/ICL.json
       - ./server-config:/server-config:ro
       - ./third_party/mods/ftb-library-fabric-2001.1.4.jar:/data/mods/ftb-library-fabric-2001.1.4.jar:ro
